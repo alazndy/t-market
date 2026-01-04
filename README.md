@@ -1,94 +1,95 @@
-# T-Market - Ecosystem Marketplace
+# t-Market: Ecosystem Marketplace & Commercial Engine
 
-A standalone marketplace application for managing subscriptions, payments, and module purchases across the T-Ecosystem (UPH, ENV-I, Weave, Renderci, T-SA).
+![Status](https://img.shields.io/badge/Status-Alpha-orange) ![License](https://img.shields.io/badge/License-MIT-green) ![Tech](https://img.shields.io/badge/Tech-Next.js%20%7C%20Stripe%20%7C%20Firebase-blue)
 
-## Features
+**t-Market** is the commercial backbone of the **T-Ecosystem**, designed to be the central hub for acquiring, managing, and billing software modules. It transforms the ecosystem from a set of tools into a scalable SaaS platform, handling everything from user subscriptions to enterprise licensing.
 
-- 🛒 **Module Marketplace** - Browse and purchase apps, add-ons, and integrations
-- 👤 **User Authentication** - Secure login with Firebase Auth
-- 💳 **Payment Processing** - Stripe integration for subscriptions and one-time purchases
-- 📊 **Account Dashboard** - Manage subscriptions, view purchase history
-- 🔐 **License Management** - API for validating module access across ecosystem apps
-- 🌐 **SSO Integration** - Single sign-on for all ecosystem applications
+## 🚀 Capabilities & Features
 
-## Tech Stack
+### 🛒 Digital Marketplace
 
-- **Framework:** Next.js 15 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Authentication:** Firebase Auth
-- **Database:** Firestore
-- **Payments:** Stripe
-- **State Management:** Zustand
-- **Deployment:** Vercel
+- **Module Discovery**: Browse a catalog of T-Ecosystem modules (ENV-I, UPH, Weave, Renderci).
+- **Rich Product Pages**: Detailed feature breakdowns, version history, and pricing tiers for each module.
+- **Add-on System**: Purchase capability expansions (e.g., "Extra Storage", "Advanced Analytics Pack").
 
-## Getting Started
+### 💳 Secure Payments & Billing
+
+- **Stripe Integration**: Robust payment processing for credit cards and subscription billing.
+- **Subscription Management**: Self-serve upgrades/downgrades with automated proration logic.
+- **Invoicing**: Auto-generated compliant PDF invoices for every transaction.
+- **Usage-Based Billing**: Support for tiered pricing based on seats, storage, or API calls.
+
+### 👤 User & Organization Management
+
+- **Unified Account**: Single Sign-On (SSO) identity management across the entire ecosystem.
+- **Billing Profiles**: Manage multiple payment methods and billing addresses.
+- **License Management**: Assign purchased seats to specific team members.
+
+### 🤖 Intelligent Features
+
+- **Smart Recommendations**: Suggests modules based on user usage patterns (e.g., "You use Inventory often, try the Advanced Warehouse Map").
+- **Cross-Sell & Up-Sell**: Targeted promotions and bundle offers.
+
+## 🛠️ Technology Architecture
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Payments**: **Stripe API** (Webhooks & Checkout Sessions)
+- **Database**: **Firebase Firestore** (User data & Order history)
+- **Styling**: Tailwind CSS
+- **State**: Zustand
+
+## 📂 Project Structure
+
+```bash
+app/
+├── store/           # Marketplace catalog & product pages
+├── cart/            # Shopping cart logic
+├── checkout/        # Stripe Checkout integration
+├── account/         # User dashboard & billing settings
+├── api/             # Stripe Webhooks & Server-side logic
+└── login/           # Authentication flows
+```
+
+## 🏁 Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ or pnpm
-- Firebase project
-- Stripe account
+- Node.js (v18+)
+- pnpm
+- Stripe Account (Test Mode)
 
 ### Installation
 
-```bash
-# Install dependencies
-pnpm install
+1.  **Clone the repository**
 
-# Run development server
-pnpm dev
-```
+    ```bash
+    git clone https://github.com/alazndy/t-market.git
+    cd t-market
+    ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the application.
+2.  **Install Dependencies**
 
-## Project Structure
+    ```bash
+    pnpm install
+    ```
 
-```
-t-Market/
-├── app/                    # Next.js app directory
-│   ├── (auth)/            # Authentication pages
-│   ├── (dashboard)/       # User dashboard
-│   ├── store/             # Marketplace pages
-│   └── api/               # API routes
-├── components/            # React components
-├── lib/                   # Utility functions
-├── types/                 # TypeScript definitions
-└── public/                # Static assets
-```
+3.  **Environment Setup**
+    Create `.env.local` with Stripe and Firebase keys:
 
-## Environment Variables
+    ```env
+    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=...
+    STRIPE_SECRET_KEY=...
+    NEXT_PUBLIC_FIREBASE_API_KEY=...
+    ```
 
-Create a `.env.local` file:
+4.  **Run Development Server**
 
-```env
-# Firebase
-NEXT_PUBLIC_FIREBASE_API_KEY=
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+    ```bash
+    pnpm dev
+    ```
 
-# Stripe
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
-STRIPE_SECRET_KEY=
-STRIPE_WEBHOOK_SECRET=
-```
+    Open [http://localhost:3002](http://localhost:3002) to view the marketplace.
 
-## Development Roadmap
+---
 
-- [x] Project initialization
-- [x] Authentication system (Firebase Auth)
-- [x] UI System (Shadcn/UI + tek-ui variables)
-- [ ] Marketplace catalog
-- [ ] Shopping cart
-- [ ] Stripe integration
-- [ ] Subscription management
-- [ ] Account dashboard
-- [ ] License validation API
-
-## License
-
-Private - All Rights Reserved
-
-## Repository
-
-https://github.com/alazndy/t-Market
+Part of the **T-Ecosystem**.
